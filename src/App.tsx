@@ -1,11 +1,17 @@
 import React from 'react';
 
 interface AppProps {
-  message: string ;
+  message?: string ;
+  description?: string
 }
 
-const App = ({message}: {message: string}) => {
-  return <div>{ message }</div>;
+const App: React.FunctionComponent<AppProps> = ({ message }, {description}) => {
+  return <div>{ message },{ description }</div>;
 };
+
+App.defaultProps = {
+  message: 'Hello-default props',
+  description: 'This is App component.',
+}
 
 export default App;
